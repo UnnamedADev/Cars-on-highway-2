@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.0.2 - GAME Cars on highway 2</title>
+    <title>v0.0.3 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     
     <script src="engine/modules/functions.js"></script>
@@ -11,11 +11,21 @@
     
 </head>
 <body>
+   <!-- # GAME # -->
     <section id="game">
-    
-            <div id="myUI"></div>
+            <!-- # UI # -->
+            <div id="myUI">
+                <ul id="myMenu">
+                    <li><a><b>play</b></a></li>
+                    <li><a class="comingsoon">cars</a></li>
+                    <li><a class="comingsoon">stages</a></li>
+                    <li><a class="comingsoon">games history</a></li>
+                    <li><a class="comingsoon">options</a></li>
+                </ul>
+            </div>
             
-            <canvas id="myCanv" width="1000" height="900"></canvas>
+            <!-- # GAMEPLAY # -->
+            <canvas id="myCanvas" width="1000" height="900"></canvas>
 
     </section>
 </body>
