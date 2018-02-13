@@ -16,7 +16,7 @@ function gameplay(myCanvas) {
     
     // # CONFIGURATION
         // # player
-        px=py=100;
+        px=400; py=500;
         pxv=pyv=0;
         pWidth = 50;
         pHeight = 100;
@@ -24,21 +24,65 @@ function gameplay(myCanvas) {
         pSpeedy = 0.18*100;
     
     // # GAME
+    addEnemy();addEnemy();
     function game(){
         console.log("It works!");
-        // # PLAY POSITION
+        // # PLAYER POSITION
         px += pxv*pSpeedx*UCspeedmodifier;
         py += pyv*pSpeedy*UCspeedmodifier;
-        
+            // X border pass detection
+            if(px<200){
+                px=200;
+            }
+            if(px+pWidth>myCanvas.width-200){
+                px=myCanvas.width-200-pWidth;
+            }
+            // # Y border pass detection
+            if(py<0){
+                py=0;
+            }
+            if(py+pHeight>myCanvas.height){
+                py=myCanvas.height-pHeight;
+            }
         // # DRAW BACKGROUND AND ASPHALT
         ctx.fillStyle = "#137a21";
         ctx.fillRect(0,0,myCanvas.width,myCanvas.height);
         ctx.fillStyle = "#1a231b";
         ctx.fillRect(200,0,myCanvas.width-400,myCanvas.height);
         
+        // # DRAW LINES
+            // # white lines
+            for(var i=0;i<7;i++){
+                ctx.beginPath();
+                ctx.setLineDash([0, 0]);
+                ctx.moveTo(200+i*100,0);
+                ctx.lineTo(200+i*100,myCanvas.height);
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "white";
+                ctx.stroke();
+                ctx.closePath();
+            }
+            for(var j=0;j<6;j++){
+                ctx.beginPath();
+                ctx.setLineDash([40, 80]);
+                ctx.moveTo(250+j*100,0);
+                ctx.lineTo(250+j*100,myCanvas.height);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "yellow";
+                ctx.stroke();
+                ctx.closePath();
+            }
+        
         // # DRAW PLAYER
         ctx.fillStyle = "#c41f7a";
         ctx.fillRect(px,py,pWidth,pHeight);
+        
+        // # DRAW ENEMIES
+        for(var k=0;k<enemy.length;k++){
+            ctx.fillStyle = "#c41f1f";
+            enemy[k].y += enemy[k].speed;
+            ctx.fillRect(enemy[k].x,enemy[k].y,50,100);
+        }
     }
     
     // # FUNCTIONS
