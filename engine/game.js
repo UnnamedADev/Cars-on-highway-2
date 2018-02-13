@@ -3,7 +3,7 @@ function gameplay(myCanvas) {
     
     // # USER CONFIGURATION
     UCdefaultfps = 30;
-    UCfps = 30;
+    UCfps = 60;
     UCspeedmodifier = UCdefaultfps/UCfps;
     
     
@@ -16,20 +16,23 @@ function gameplay(myCanvas) {
     
     // # CONFIGURATION
         // # player
-        px=400; py=500;
-        pxv=pyv=0;
         pWidth = 50;
         pHeight = 100;
-        pSpeedx = 0.12*100;
-        pSpeedy = 0.18*100;
+        pSpeedx = (0.12*100)*UCspeedmodifier;
+        pSpeedy = (0.18*100)*UCspeedmodifier;
+    
+        pdx=450; pdy=myCanvas.height-pHeight-20;
+        px=pdx; py=pdy;
+        pxv=pyv=0;
+        
     
     // # GAME
     addEnemy();addEnemy();
     function game(){
-        console.log("It works!");
+        
         // # PLAYER POSITION
-        px += pxv*pSpeedx*UCspeedmodifier;
-        py += pyv*pSpeedy*UCspeedmodifier;
+        px += pxv*pSpeedx;
+        py += pyv*pSpeedy;
             // X border pass detection
             if(px<200){
                 px=200;
@@ -44,6 +47,18 @@ function gameplay(myCanvas) {
             if(py+pHeight>myCanvas.height){
                 py=myCanvas.height-pHeight;
             }
+            // # ENEMY crash detection
+            for(var l=0;l<enemy.length;l++){
+                // # ENEMY Y detection
+                if(py<enemy[l].y+enemy[l].height && py>enemy[l].y){
+                   if(px>enemy[l].x && px<enemy[l].x+enemy[l].width || px+pWidth>enemy[l].x && px+pWidth<enemy[l].x+enemy[l].width){
+                       console.log("Crash...");
+                       px=pdx; py=pdy;
+                       removeAllEnemies();
+                   }
+                }
+            }
+  
         // # DRAW BACKGROUND AND ASPHALT
         ctx.fillStyle = "#137a21";
         ctx.fillRect(0,0,myCanvas.width,myCanvas.height);
@@ -79,9 +94,15 @@ function gameplay(myCanvas) {
         
         // # DRAW ENEMIES
         for(var k=0;k<enemy.length;k++){
+            // # enemy drawing and moving
             ctx.fillStyle = "#c41f1f";
-            enemy[k].y += enemy[k].speed;
-            ctx.fillRect(enemy[k].x,enemy[k].y,50,100);
+            enemy[k].y += enemy[k].speed*UCspeedmodifier;
+            ctx.fillRect(enemy[k].x,enemy[k].y,enemy[k].width,enemy[k].height);
+            
+            // # enemy out of map detection
+            if(enemy[k].y>myCanvas.height){
+                removeEnemy();
+            }
         }
     }
     
