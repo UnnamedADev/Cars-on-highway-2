@@ -28,15 +28,15 @@ function gameplay(myCanvas) {
         // # player
         pWidth = 40;
         pHeight = 90;
-        pSpeedx = (0.12*100)*UCspeedmodifier;
-        pSpeedy = (0.18*100)*UCspeedmodifier;
+        pSpeedx = (0.10*100)*UCspeedmodifier;
+        pSpeedy = (0.16*100)*UCspeedmodifier;
     
         pdx=200+5*lWidth+((lWidth-pWidth)/2); pdy=myCanvas.height-pHeight-20;
         px=pdx; py=pdy;
         pxv=pyv=0;
         // # enemies generator
         eactive = 3;
-        eRange = 2;
+        eRange = 3;
         
     
     // # GAME

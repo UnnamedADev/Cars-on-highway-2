@@ -11,5 +11,10 @@ function loadResources(){
     resComputerPremium = [];
     resComputerPremium[0] = document.getElementById("premium1");
     resComputerPremium[1] = document.getElementById("premium2");
+    
+    resComputerSport = [];
+    resComputerSport[0] = document.getElementById("sport1");
+    resComputerSport[1] = document.getElementById("sport2");
+    
 // !!! BLOCK END !!!
 }

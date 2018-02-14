@@ -13,25 +13,25 @@ types = [
      width: 45,
      height: 115,
      model: "premium",
-     natspeed: 1.1
+     natspeed: 0.9
     },
     {name: "sport",
      width: 45,
      height: 105,
      model: "sport",
-     natspeed: 1.2
+     natspeed: 0.8
     },
     {name: "truck",
      width: 50,
      height: 150,
      model: "truck",
-     natspeed: 0.9
+     natspeed: 1.1
     },
     {name: "bike",
      width: 25,
      height: 50,
      model: "bike",
-     natspeed: 1.2
+     natspeed: 0.8
     }
 ];
 
@@ -47,6 +47,7 @@ function addEnemy(){
             var wmod = resComputerPremium[Math.floor(Math.random()*resComputerPremium.length)];
             break;
         case "sport":
+            var wmod = resComputerSport[Math.floor(Math.random()*resComputerSport.length)];
             break;
         case "truck":
             break;
