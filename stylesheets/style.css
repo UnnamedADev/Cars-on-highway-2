@@ -18,21 +18,21 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
-    body #game #myUI {
+    body #game #menuHolder {
       position: absolute;
       z-index: 1000;
       background: #eee;
       width: 100%;
       height: 100%;
       display: block; }
-      body #game #myUI > ul {
+      body #game #menuHolder > ul {
         list-style-type: none;
         padding: 0;
         margin: 40px 0 0 0; }
-        body #game #myUI > ul li {
+        body #game #menuHolder > ul li {
           text-align: center;
           display: block; }
-          body #game #myUI > ul li a {
+          body #game #menuHolder > ul li a {
             width: 30%;
             margin: 20px auto;
             padding: 10px 0;
@@ -43,14 +43,28 @@ body {
             text-transform: uppercase;
             font-size: 1.5em;
             transition: 0.3s ease; }
-            body #game #myUI > ul li a:hover {
+            body #game #menuHolder > ul li a:hover {
               border-left: 10px solid #333;
               border-right: 10px solid #333; }
-          body #game #myUI > ul li .comingsoon::after {
+          body #game #menuHolder > ul li .comingsoon::after {
             position: absolute;
             right: 200px;
             content: "coming soon";
             color: #d12323; }
+    body #game #UIholder {
+      position: absolute;
+      z-index: 1200;
+      width: 100%;
+      height: 100%;
+      display: none; }
+      body #game #UIholder > div {
+        height: 100%;
+        width: 200px;
+        background: rgba(0, 0, 0, 0.4); }
+      body #game #UIholder > div:nth-of-type(1) {
+        float: left; }
+      body #game #UIholder > div:nth-of-type(2) {
+        float: right; }
     body #game #myCanvas {
       position: absolute;
       z-index: 1100;

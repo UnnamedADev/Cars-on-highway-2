@@ -28,7 +28,7 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
         
-        #myUI {
+        #menuHolder {
             position: absolute;
             z-index: 1000;
             background: $fair;
@@ -73,7 +73,27 @@ body {
                 }
             }
         }
-        
+        #UIholder {
+            position: absolute;
+            z-index: 1200;
+            width: 100%;
+            height: 100%;
+            
+            display: none;
+            
+            >div{
+                height: 100%;
+                width: 200px;
+                background: rgba(0,0,0,0.4);
+            }
+            
+            >div:nth-of-type(1){
+                float: left;
+            }
+            >div:nth-of-type(2){
+                float: right;
+            }
+        }
         #myCanvas {
             position: absolute;
             z-index: 1100;

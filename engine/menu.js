@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     
     // # FIND MENU
-    var menuEl = document.getElementById("myMenu");
+    var menuEl = document.getElementById("menuHolder");
     var menuBtns = menuEl.getElementsByTagName("a");
     
     addMenuEvt(menuBtns);
@@ -37,7 +37,7 @@ function addMenuEvt(btnsArray){
 
 // # DESTROY MENU
 function destroyUI(){
-    var ui = document.getElementById("myUI");
+    var ui = document.getElementById("menuHolder");
     ui.style.display = "none";
 }
 // # CONTSTRUCT CANVAS

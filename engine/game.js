@@ -15,19 +15,25 @@ function gameplay(myCanvas) {
     gInterval = window.setInterval(game, 1000/UCfps);
     
     // # CONFIGURATION
+        // # map
+        lWidth = 50;
+    
         // # player
-        pWidth = 50;
-        pHeight = 100;
+        pWidth = 40;
+        pHeight = 90;
         pSpeedx = (0.12*100)*UCspeedmodifier;
         pSpeedy = (0.18*100)*UCspeedmodifier;
     
-        pdx=450; pdy=myCanvas.height-pHeight-20;
+        pdx=200+5*lWidth+((lWidth-pWidth)/2); pdy=myCanvas.height-pHeight-20;
         px=pdx; py=pdy;
         pxv=pyv=0;
         // # enemies generator
-        eactive = 2;
+        eactive = 3;
+        eRange = 2;
+        
     
     // # GAME
+    drawUI();
     createEnemies(eactive);
     function game(){
         
@@ -91,13 +97,13 @@ function gameplay(myCanvas) {
             }
         
         // # DRAW PLAYER
-        ctx.fillStyle = "#c41f7a";
+        ctx.fillStyle = "#ddd";
         ctx.fillRect(px,py,pWidth,pHeight);
         
         // # DRAW ENEMIES
         for(var k=0;k<enemy.length;k++){
             // # enemy drawing and moving
-            ctx.fillStyle = "#c41f1f";
+            ctx.fillStyle = enemy[k].color;
             enemy[k].y += enemy[k].speed*UCspeedmodifier;
             ctx.fillRect(enemy[k].x,enemy[k].y,enemy[k].width,enemy[k].height);
             
@@ -109,7 +115,9 @@ function gameplay(myCanvas) {
     }
     
     // # FUNCTIONS
-    
+    function drawUI() {
+        document.getElementById("UIholder").style.display = "block";
+    }
     // # PUSH KEY
     function keyPush(evt){
         
