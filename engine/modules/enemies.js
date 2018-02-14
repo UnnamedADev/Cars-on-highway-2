@@ -6,31 +6,31 @@ types = [
     {name: "normal",
      width: 45,
      height: 90,
-     color: "orange",
+     model: "normal",
      natspeed: 1
     },
     {name: "premium",
      width: 45,
      height: 115,
-     color: "red",
+     model: "premium",
      natspeed: 1.1
     },
     {name: "sport",
      width: 45,
      height: 105,
-     color: "blue",
+     model: "sport",
      natspeed: 1.2
     },
     {name: "truck",
      width: 50,
      height: 150,
-     color: "green",
+     model: "truck",
      natspeed: 0.9
     },
     {name: "bike",
      width: 25,
      height: 50,
-     color: "grey",
+     model: "bike",
      natspeed: 1.2
     }
 ];
@@ -38,6 +38,22 @@ types = [
 // # ADDING SINGLE ENEMY
 function addEnemy(){
     var tp = Math.floor(Math.random()*eRange);
+    
+    switch(types[tp].model){
+        case "normal":
+            var wmod = resComputerNormal[Math.floor(Math.random()*resComputerNormal.length)];
+            break;
+        case "premium":
+            var wmod = resComputerPremium[Math.floor(Math.random()*resComputerPremium.length)];
+            break;
+        case "sport":
+            break;
+        case "truck":
+            break;
+        case "bike":
+            break;
+    }
+    
     enemy.push({
         x:200+Math.floor(Math.random()*10)*lWidth+((lWidth-types[tp].width)/2),
         y:0-types[tp].height,
@@ -46,7 +62,7 @@ function addEnemy(){
         speed: 0.15*100*types[tp].natspeed,
         
         type: types[tp].name,
-        color: types[tp].color
+        model: wmod
     });
 }
 // # REMOVING SINGLE ENEMY

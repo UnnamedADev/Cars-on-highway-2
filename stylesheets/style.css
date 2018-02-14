@@ -70,5 +70,7 @@ body {
       z-index: 1100;
       float: left;
       display: none; }
+    body #game #myResources {
+      display: none; }
 
 /*# sourceMappingURL=style.css.map */

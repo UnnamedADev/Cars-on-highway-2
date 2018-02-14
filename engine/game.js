@@ -14,9 +14,16 @@ function gameplay(myCanvas) {
         
     gInterval = window.setInterval(game, 1000/UCfps);
     
+    // # LOAD RESOURCES
+    loadResources();
+    
     // # CONFIGURATION
-        // # map
+        // # lines
         lWidth = 50;
+        lx = undefined; ly=0;
+        lxv=0; lyv=1;
+        lSpeedy = (0.20*100)*UCspeedmodifier;
+        lSpeedx = undefined;
     
         // # player
         pWidth = 40;
@@ -36,7 +43,11 @@ function gameplay(myCanvas) {
     drawUI();
     createEnemies(eactive);
     function game(){
-        
+        // # LINES POSITION
+        ly += lyv*lSpeedy;
+        if(ly>=80){
+           ly=-40
+        }
         // # PLAYER POSITION
         px += pxv*pSpeedx;
         py += pyv*pSpeedy;
@@ -85,10 +96,11 @@ function gameplay(myCanvas) {
                 ctx.stroke();
                 ctx.closePath();
             }
+            // # yellow lines
             for(var j=0;j<6;j++){
                 ctx.beginPath();
                 ctx.setLineDash([40, 80]);
-                ctx.moveTo(250+j*100,0);
+                ctx.moveTo(250+j*100,ly);
                 ctx.lineTo(250+j*100,myCanvas.height);
                 ctx.lineWidth = 3;
                 ctx.strokeStyle = "yellow";
@@ -97,15 +109,13 @@ function gameplay(myCanvas) {
             }
         
         // # DRAW PLAYER
-        ctx.fillStyle = "#ddd";
-        ctx.fillRect(px,py,pWidth,pHeight);
+        ctx.drawImage(resPlayer[0],px,py,pWidth,pHeight);
         
         // # DRAW ENEMIES
         for(var k=0;k<enemy.length;k++){
             // # enemy drawing and moving
-            ctx.fillStyle = enemy[k].color;
             enemy[k].y += enemy[k].speed*UCspeedmodifier;
-            ctx.fillRect(enemy[k].x,enemy[k].y,enemy[k].width,enemy[k].height);
+            ctx.drawImage(enemy[k].model,enemy[k].x,enemy[k].y,enemy[k].width,enemy[k].height)
             
             // # enemy out of map detection
             if(enemy[k].y>myCanvas.height){
