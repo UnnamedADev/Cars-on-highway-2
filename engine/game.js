@@ -24,10 +24,11 @@ function gameplay(myCanvas) {
         pdx=450; pdy=myCanvas.height-pHeight-20;
         px=pdx; py=pdy;
         pxv=pyv=0;
-        
+        // # enemies generator
+        eactive = 2;
     
     // # GAME
-    addEnemy();addEnemy();
+    createEnemies(eactive);
     function game(){
         
         // # PLAYER POSITION
@@ -50,11 +51,12 @@ function gameplay(myCanvas) {
             // # ENEMY crash detection
             for(var l=0;l<enemy.length;l++){
                 // # ENEMY Y detection
-                if(py<enemy[l].y+enemy[l].height && py>enemy[l].y){
-                   if(px>enemy[l].x && px<enemy[l].x+enemy[l].width || px+pWidth>enemy[l].x && px+pWidth<enemy[l].x+enemy[l].width){
+                if(py<=enemy[l].y+enemy[l].height && py>=enemy[l].y || py+pHeight<=enemy[l].y+enemy[l].height && py+pHeight>=enemy[l].y){
+                   if(px>=enemy[l].x && px<=enemy[l].x+enemy[l].width || px+pWidth>=enemy[l].x && px+pWidth<=enemy[l].x+enemy[l].width){
                        console.log("Crash...");
                        px=pdx; py=pdy;
                        removeAllEnemies();
+                       createEnemies(eactive);
                    }
                 }
             }
