@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.5 - GAME Cars on highway 2</title>
+    <title>v0.1.6 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
+    
+    <script src="engine/modules/ui.js"></script>
     <script src="engine/modules/resources.js"></script>
     <script src="engine/modules/enemies.js"></script>
     <script src="engine/game.js"></script>
@@ -32,12 +34,43 @@
                 </div>
                 <!-- # RIGHT UI # -->
                 <div>
-                    
+                    <table>
+                       <tr>
+                           <th>Car type</th>
+                           <th>Passed</th>
+                       </tr>
+                        <tr>
+                            <td>Normal</td>
+                            <td id="UItbnormal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Premium</td>
+                            <td id="UItbpremium">0</td>
+                        </tr>
+                        <tr>
+                            <td>Sport</td>
+                            <td id="UItbsport">0</td>
+                        </tr>
+                        <tr>
+                            <td>Truck</td>
+                            <td id="UItbtruck">0</td>
+                        </tr>
+                        <tr>
+                            <td>Bike</td>
+                            <td id="UItbbike">0</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Summary</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" id="UItbsummary">0</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             
             <!-- # GAMEPLAY # -->
-            <canvas id="myCanvas" width="1000" height="900"></canvas>
+            <canvas id="myCanvas" width="1400" height="900"></canvas>
     <!-- # RESOURCES BLOCK -->
     <div id="myResources">
        <!-- player -->
@@ -51,6 +84,11 @@
         
         <img id="sport1" src="resources/textures/computer/sport2.png">
         <img id="sport2" src="resources/textures/computer/sport2.png">
+        
+        <img id="truck1" src="resources/textures/computer/truck1.png">
+        <img id="truck2" src="resources/textures/computer/truck2.png">
+        
+        <img id="bike1" src="resources/textures/computer/bike1.png">
     </div>
     </section>
 </body>

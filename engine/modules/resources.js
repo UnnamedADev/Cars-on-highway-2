@@ -16,5 +16,11 @@ function loadResources(){
     resComputerSport[0] = document.getElementById("sport1");
     resComputerSport[1] = document.getElementById("sport2");
     
+    resComputerTruck = [];
+    resComputerTruck[0] = document.getElementById("truck1");
+    resComputerTruck[1] = document.getElementById("truck2");
+    
+    resComputerBike = [];
+    resComputerBike[0] = document.getElementById("bike1");
 // !!! BLOCK END !!!
 }

@@ -6,31 +6,26 @@ types = [
     {name: "normal",
      width: 45,
      height: 90,
-     model: "normal",
      natspeed: 1
     },
     {name: "premium",
      width: 45,
      height: 115,
-     model: "premium",
      natspeed: 0.9
     },
     {name: "sport",
      width: 45,
      height: 105,
-     model: "sport",
      natspeed: 0.8
     },
     {name: "truck",
      width: 50,
      height: 150,
-     model: "truck",
      natspeed: 1.1
     },
     {name: "bike",
      width: 25,
      height: 50,
-     model: "bike",
      natspeed: 0.8
     }
 ];
@@ -39,7 +34,7 @@ types = [
 function addEnemy(){
     var tp = Math.floor(Math.random()*eRange);
     
-    switch(types[tp].model){
+    switch(types[tp].name){
         case "normal":
             var wmod = resComputerNormal[Math.floor(Math.random()*resComputerNormal.length)];
             break;
@@ -50,13 +45,15 @@ function addEnemy(){
             var wmod = resComputerSport[Math.floor(Math.random()*resComputerSport.length)];
             break;
         case "truck":
+            var wmod = resComputerTruck[Math.floor(Math.random()*resComputerTruck.length)];
             break;
         case "bike":
+            var wmod = resComputerBike[Math.floor(Math.random()*resComputerBike.length)];
             break;
     }
     
     enemy.push({
-        x:200+Math.floor(Math.random()*10)*lWidth+((lWidth-types[tp].width)/2),
+        x:400+Math.floor(Math.random()*12)*lWidth+((lWidth-types[tp].width)/2),
         y:0-types[tp].height,
         width: types[tp].width,
         height: types[tp].height,

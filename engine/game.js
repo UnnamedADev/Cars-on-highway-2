@@ -36,11 +36,12 @@ function gameplay(myCanvas) {
         pxv=pyv=0;
         // # enemies generator
         eactive = 3;
-        eRange = 3;
+        eRange = 4;
         
     
     // # GAME
     drawUI();
+    initTable();
     createEnemies(eactive);
     function game(){
         // # LINES POSITION
@@ -52,11 +53,11 @@ function gameplay(myCanvas) {
         px += pxv*pSpeedx;
         py += pyv*pSpeedy;
             // X border pass detection
-            if(px<200){
-                px=200;
+            if(px<400){
+                px=400;
             }
-            if(px+pWidth>myCanvas.width-200){
-                px=myCanvas.width-200-pWidth;
+            if(px+pWidth>myCanvas.width-400){
+                px=myCanvas.width-400-pWidth;
             }
             // # Y border pass detection
             if(py<0){
@@ -82,15 +83,15 @@ function gameplay(myCanvas) {
         ctx.fillStyle = "#137a21";
         ctx.fillRect(0,0,myCanvas.width,myCanvas.height);
         ctx.fillStyle = "#1a231b";
-        ctx.fillRect(200,0,myCanvas.width-400,myCanvas.height);
+        ctx.fillRect(400,0,myCanvas.width-800,myCanvas.height);
         
         // # DRAW LINES
             // # white lines
             for(var i=0;i<7;i++){
                 ctx.beginPath();
                 ctx.setLineDash([0, 0]);
-                ctx.moveTo(200+i*100,0);
-                ctx.lineTo(200+i*100,myCanvas.height);
+                ctx.moveTo(400+i*100,0);
+                ctx.lineTo(400+i*100,myCanvas.height);
                 ctx.lineWidth = 2;
                 ctx.strokeStyle = "white";
                 ctx.stroke();
@@ -100,8 +101,8 @@ function gameplay(myCanvas) {
             for(var j=0;j<6;j++){
                 ctx.beginPath();
                 ctx.setLineDash([40, 80]);
-                ctx.moveTo(250+j*100,ly);
-                ctx.lineTo(250+j*100,myCanvas.height);
+                ctx.moveTo(450+j*100,ly);
+                ctx.lineTo(450+j*100,myCanvas.height);
                 ctx.lineWidth = 3;
                 ctx.strokeStyle = "yellow";
                 ctx.stroke();
@@ -119,6 +120,8 @@ function gameplay(myCanvas) {
             
             // # enemy out of map detection
             if(enemy[k].y>myCanvas.height){
+                carPassed(enemy[0]);
+                refreshTable();
                 removeEnemy();
             }
         }
