@@ -34,15 +34,24 @@ function gameplay(myCanvas) {
         pdx=200+5*lWidth+((lWidth-pWidth)/2); pdy=myCanvas.height-pHeight-20;
         px=pdx; py=pdy;
         pxv=pyv=0;
+    
         // # enemies generator
-        eactive = 3;
+        eActive = 3;
         eRange = 4;
-        
+    
+        // # cars passed
+        cpSummary = 0;
+    
+        // # stages
+        sActual = 0;
     
     // # GAME
     drawUI();
     initTable();
-    createEnemies(eactive);
+    
+    refreshUI(true,true,true);
+    
+    createEnemies(eActive);
     function game(){
         // # LINES POSITION
         ly += lyv*lSpeedy;
@@ -71,10 +80,12 @@ function gameplay(myCanvas) {
                 // # ENEMY Y detection
                 if(py<=enemy[l].y+enemy[l].height && py>=enemy[l].y || py+pHeight<=enemy[l].y+enemy[l].height && py+pHeight>=enemy[l].y){
                    if(px>=enemy[l].x && px<=enemy[l].x+enemy[l].width || px+pWidth>=enemy[l].x && px+pWidth<=enemy[l].x+enemy[l].width){
-                       console.log("Crash...");
+                       // # crash
                        px=pdx; py=pdy;
                        removeAllEnemies();
-                       createEnemies(eactive);
+                       createEnemies(eActive);
+                       clearSummary();
+                       refreshUI(true,true,true);
                    }
                 }
             }
@@ -121,8 +132,9 @@ function gameplay(myCanvas) {
             // # enemy out of map detection
             if(enemy[k].y>myCanvas.height){
                 carPassed(enemy[0]);
-                refreshTable();
+                refreshUI(true,true,true);
                 removeEnemy();
+                
             }
         }
     }
@@ -130,6 +142,13 @@ function gameplay(myCanvas) {
     // # FUNCTIONS
     function drawUI() {
         document.getElementById("UIholder").style.display = "block";
+        
+        var stgb = "";
+        for(var i=0;i<stages.length;i++){
+            stgb += "<div>"+stages[i].name+"<span> you need "+stages[i].requireCars+" cars</span></div>"
+        }
+        
+        document.getElementById("UIstagebar").innerHTML = stgb;
     }
     // # PUSH KEY
     function keyPush(evt){

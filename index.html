@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.6 - GAME Cars on highway 2</title>
+    <title>v0.1.7 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     
+    <script src="engine/modules/stages.js"></script>
     <script src="engine/modules/ui.js"></script>
     <script src="engine/modules/resources.js"></script>
     <script src="engine/modules/enemies.js"></script>
@@ -30,7 +31,12 @@
             <div id="UIholder">
                 <!-- # LEFT UI # -->
                 <div>
-                    
+                    <div>
+                        <h1>You are</h1>
+                        <h2>7</h2>
+                        <h3>level</h3>
+                    </div>
+   
                 </div>
                 <!-- # RIGHT UI # -->
                 <div>
@@ -41,31 +47,39 @@
                        </tr>
                         <tr>
                             <td>Normal</td>
-                            <td id="UItbnormal">0</td>
+                            <td id="UItbnormal"></td>
                         </tr>
                         <tr>
                             <td>Premium</td>
-                            <td id="UItbpremium">0</td>
+                            <td id="UItbpremium"></td>
                         </tr>
                         <tr>
                             <td>Sport</td>
-                            <td id="UItbsport">0</td>
+                            <td id="UItbsport"></td>
                         </tr>
                         <tr>
                             <td>Truck</td>
-                            <td id="UItbtruck">0</td>
+                            <td id="UItbtruck"></td>
                         </tr>
                         <tr>
                             <td>Bike</td>
-                            <td id="UItbbike">0</td>
+                            <td id="UItbbike"></td>
                         </tr>
                         <tr>
                             <th colspan="2">Summary</th>
                         </tr>
                         <tr>
-                            <td colspan="2" id="UItbsummary">0</td>
+                            <td colspan="2" id="UItbsummary"></td>
                         </tr>
                     </table>
+                    
+                    <div id="UIstagebar">
+                        <!-- stages auto generation here -->
+                    </div>
+                    <div>
+                        <p>Next stage in...</p>
+                        <p id="UInextstagein"></p>
+                    </div>
                 </div>
             </div>
             

@@ -68,8 +68,8 @@ function removeEnemy(){
     enemy.shift();
     addEnemy();
     
-    if(enemy.length<eactive){
-        createEnemies(eactive-enemy.length);
+    if(enemy.length<eActive){
+        createEnemies(eActive-enemy.length);
     }
 }
 // # REMOVING ALL ENEMIES

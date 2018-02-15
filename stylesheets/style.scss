@@ -88,6 +88,10 @@ body {
             
             >div:nth-of-type(1){
                 float: left;
+                >div:nth-last-of-type(1){
+                    background: $fair;
+                }
+             
             }
             >div:nth-of-type(2){
                 float: right;
@@ -98,6 +102,36 @@ body {
                     text-align: center;
                     td,th {
                         background: $fair;
+                    }
+                }
+                #UIstagebar {
+                    float: right;
+                    margin-top: 5px;
+                    width: 100%; height: 570px;
+                    background: $fair;
+                    position: relative;
+                    padding: 5px 0px;
+                    
+                    >div {
+                        text-align: center;
+                        padding: 3px 10px;
+                        text-transform: uppercase;
+                        font-variant: small-caps;
+                        span {
+                            font-size: 0.7em;
+                        }
+                    }
+                }
+                >div:nth-of-type(2){
+                    float: right;
+                    margin-top: 5px;
+                    width: 100%; height: 90px;
+                    background: $fair;
+                    text-align: center;
+                    
+                    p {
+                        margin: 0;
+                        font-size: 1.8em;
                     }
                 }
             }
