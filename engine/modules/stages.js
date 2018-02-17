@@ -51,3 +51,16 @@ stages = [
     },
     
 ];
+
+// # LEVELS
+initLevels(40);
+
+// # CREATE X LEVES
+function initLevels(nmr){
+    
+    levels = [];
+    levels[0] = 20;
+    for(var i=1;i<nmr+1;i++){
+        levels[i] = Math.floor(levels[i-1]*1.4);
+    }
+}

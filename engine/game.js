@@ -35,6 +35,9 @@ function gameplay(myCanvas) {
         px=pdx; py=pdy;
         pxv=pyv=0;
     
+        pExperience = localStorage.getItem("userExperience");
+        pMoney = localStorage.getItem("userMoney");
+        pLvl = localStorage.getItem("userLvl");
         // # enemies generator
         eActive = undefined;
         eRange = undefined;
@@ -44,6 +47,7 @@ function gameplay(myCanvas) {
     
         // # stages
         sActual = 0;
+    
     
     // # GAME
     drawUI();

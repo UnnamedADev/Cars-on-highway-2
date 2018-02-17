@@ -6,27 +6,32 @@ types = [
     {name: "normal",
      width: 45,
      height: 90,
-     natspeed: 1
+     natspeed: 1,
+     experience: 5,
     },
     {name: "premium",
      width: 45,
      height: 115,
-     natspeed: 0.9
+     natspeed: 0.9,
+     experience: 8
     },
     {name: "sport",
      width: 45,
      height: 105,
-     natspeed: 0.8
+     natspeed: 0.8,
+     experience: 12
     },
     {name: "truck",
      width: 50,
      height: 150,
-     natspeed: 1.1
+     natspeed: 1.1,
+     experience: 10
     },
     {name: "bike",
      width: 25,
      height: 50,
-     natspeed: 0.8
+     natspeed: 0.8,
+     experience: 5
     }
 ];
 
@@ -60,11 +65,14 @@ function addEnemy(){
         speed: 0.15*100*types[tp].natspeed,
         
         type: types[tp].name,
-        model: wmod
+        model: wmod,
+        experience: types[tp].experience
     });
 }
 // # REMOVING SINGLE ENEMY
 function removeEnemy(){
+    pExperience += enemy[0].experience;
+    saveAllData();
     enemy.shift();
     addEnemy();
     
@@ -77,6 +85,7 @@ function removeEnemy(){
 // # REMOVING ALL ENEMIES
 function removeAllEnemies(){
     enemy = [];
+    saveAllData();
 }
 // # ADDING X ENEMIES WITH Y DELAY BETWEEN
 function createEnemies(nmr){

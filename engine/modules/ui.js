@@ -92,6 +92,9 @@ function refreshNextstage(){
     
     if(cpSummary>=stages[sActual+1].requireCars){
         sActual++;
+        pExperience += sActual*100;
+        pMoney += sActual*1000;
+        saveAllData();
     }
     
     eActive = stages[sActual].carsActive;
@@ -102,4 +105,8 @@ function refreshNextstage(){
     if(sActual+1>stages.length){
         document.getElementById("UInextstagein").innerHTML = "!none!";
     }
+}
+// # REFRESH LVL AND EXPERIENCE BARS
+function refreshLvl(){
+    
 }

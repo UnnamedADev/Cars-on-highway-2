@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function(){
     
     addMenuEvt(menuBtns);
     
+    // # DISPLAY GAME VERSION
+    rdVersion();
+    
 });
 
 // # FUNCTIONS
@@ -19,18 +22,22 @@ function addMenuEvt(btnsArray){
     });
     
     btnsArray[1].addEventListener("click",function(){
-        console.log("#cars");
+        console.log("#progress");
     });
     
     btnsArray[2].addEventListener("click",function(){
-        console.log("#stages");
+        console.log("#cars");
     });
     
     btnsArray[3].addEventListener("click",function(){
-        console.log("#games history");
+        console.log("#stages");
     });
     
     btnsArray[4].addEventListener("click",function(){
+        console.log("#games history");
+    });
+    
+    btnsArray[5].addEventListener("click",function(){
         console.log("#options");
     });
 }
@@ -46,4 +53,10 @@ function constructCanvas(){
     canvas.style.display = "block";
     // # "game.js" function init
     gameplay(canvas);
+}
+// # READ AND DISPLAY GAME VERSION
+function rdVersion(){
+    var ttlVal = document.getElementsByTagName("title")[0].innerHTML;
+    var validVal = ttlVal.slice(0,ttlVal.indexOf(" -"));
+    document.getElementById("gameVERSION").innerHTML = validVal;
 }

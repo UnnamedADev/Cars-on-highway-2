@@ -51,6 +51,11 @@ body {
             right: 200px;
             content: "coming soon";
             color: #d12323; }
+      body #game #menuHolder #gameVERSION {
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        font-size: 0.7em; }
     body #game #UIholder {
       position: absolute;
       z-index: 1200;
