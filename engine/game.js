@@ -36,8 +36,8 @@ function gameplay(myCanvas) {
         pxv=pyv=0;
     
         // # enemies generator
-        eActive = 3;
-        eRange = 4;
+        eActive = undefined;
+        eRange = undefined;
     
         // # cars passed
         cpSummary = 0;

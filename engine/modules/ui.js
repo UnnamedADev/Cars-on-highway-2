@@ -73,6 +73,7 @@ function clearSummary(){
     }
     passedSummary = 0;
     cpSummary = 0;
+    sActual = 0;
 }
 
 // # CHECK AND REFRESH STAGE POINTER

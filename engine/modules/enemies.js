@@ -69,7 +69,9 @@ function removeEnemy(){
     addEnemy();
     
     if(enemy.length<eActive){
-        createEnemies(eActive-enemy.length);
+        setTimeout(function(){
+            createEnemies(eActive-enemy.length);
+        },Math.floor(Math.random()*200+80)*10);
     }
 }
 // # REMOVING ALL ENEMIES
@@ -79,8 +81,9 @@ function removeAllEnemies(){
 // # ADDING X ENEMIES WITH Y DELAY BETWEEN
 function createEnemies(nmr){
     addEnemy();
-    var randomized = Math.floor(Math.random()*100+30)*10;
+    
     for(var i=1;i<Math.abs(nmr);i++){
+        var randomized = Math.floor(Math.random()*200+80)*10;
         setTimeout(createEnemies, randomized*i);
     }
 }
