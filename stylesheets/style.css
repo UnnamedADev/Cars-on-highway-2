@@ -57,7 +57,7 @@ body {
             right: 200px;
             content: "coming soon";
             color: #d12323; }
-      body #game #menuHolder #gameVERSION {
+      body #game #menuHolder .gameSHORTCUTINFO {
         position: absolute;
         right: 10px;
         bottom: 0;

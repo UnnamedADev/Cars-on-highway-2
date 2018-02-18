@@ -9,10 +9,14 @@ function initUserData(){
         return;
     }
     
+    resetUserData();
+    localStorage.setItem("generated",true);
+}
+// # RESET USER DATA
+function resetUserData(){
     localStorage.setItem("userExperience",0);
     localStorage.setItem("userMoney",0);
     localStorage.setItem("userLvl",0);
-    localStorage.setItem("generated",true);
 }
 // # SAVE X DATA TO STORAGE
 function saveData(itm,val){

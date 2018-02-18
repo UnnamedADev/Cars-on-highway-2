@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
     // # DISPLAY GAME VERSION
     rdVersion();
-    
+    rdModifiedTime();
 });
 
 // # FUNCTIONS
@@ -58,5 +58,9 @@ function constructCanvas(){
 function rdVersion(){
     var ttlVal = document.getElementsByTagName("title")[0].innerHTML;
     var validVal = ttlVal.slice(0,ttlVal.indexOf(" -"));
-    document.getElementById("gameVERSION").innerHTML = validVal;
+    document.getElementById("gameVERSION").innerHTML = "Recent version: "+validVal;
+}
+// # READ AND DISPLAY MODIFIED TIME
+function rdModifiedTime(){
+    document.getElementById("gameMODIFIED").innerHTML = "Last update: "+document.lastModified;
 }

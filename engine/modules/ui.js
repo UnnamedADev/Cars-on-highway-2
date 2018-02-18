@@ -83,9 +83,9 @@ function clearSummary(){
 function refreshStage(){
     var stholder = document.getElementById("UIstagebar");
     var stages = stholder.getElementsByTagName("div");
-    
-    if(sActual!=0){
-        stages[sActual-1].style.background ="none";
+
+    for(var i=0;i<stages.length;i++){
+        stages[i].style.background ="none";
     }
     stages[sActual].style.background ="#f4c542";
 }
@@ -112,12 +112,21 @@ function refreshNextstage(){
 }
 // # REFRESH LVL AND EXPERIENCE BARS
 function refreshLvl(){
-    document.getElementById("UIplayerexperience").innerHTML = pExperience;
+    document.getElementById("UIplayerExperience").innerHTML = pExperience;
+    document.getElementById("UIplayerLvl").innerHTML = pLvl;
     
+    document.getElementById("UIlvlnow").innerHTML = pLvl;
+    document.getElementById("UIlvlnext").innerHTML = pLvl+1;
+    document.getElementById("UIexpnow").innerHTML = levels[pLvl];
+    document.getElementById("UIexpnext").innerHTML = levels[pLvl+1];
+    
+    var validVal = Math.floor((pExperience-levels[pLvl])/(levels[pLvl+1]-levels[pLvl])*100);
+    console.log(validVal);
+    document.getElementById("expbar").value = validVal;
 }
 
 function provideLvl(){
-    if(pExperience>=levels[pLvl+1]){
+    while(pExperience>=levels[pLvl+1]){
         pLvl++;
     }
 }

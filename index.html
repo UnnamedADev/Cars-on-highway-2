@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.10 - GAME Cars on highway 2</title>
+    <title>v0.1.11 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     
     <script src="engine/modules/io.js"></script>
@@ -27,7 +27,10 @@
                     <li><a class="comingsoon">games history</a></li>
                     <li><a class="comingsoon">options</a></li>
                 </ul>
-                <p id="gameVERSION"></p>
+                <p class="gameSHORTCUTINFO">
+                    <span id="gameMODIFIED"></span>
+                    <span id="gameVERSION"></span>
+                </p>
             </div>
             
             <!-- # IN GAME UI # -->
@@ -36,7 +39,7 @@
                 <div>
                     <div>
                         <p><b>Actual experience</b></p>
-                        <p id="UIplayerexperience">0 points</p>
+                        <p id="UIplayerExperience">0 points</p>
                     </div>
                     <div>
                         <p>You are</p>
@@ -50,7 +53,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <progress value="50" max="100"></progress>
+                                <progress id="expbar" value="50" max="100"></progress>
                             </td>
                         </tr>
                         <tr class="doubletr">

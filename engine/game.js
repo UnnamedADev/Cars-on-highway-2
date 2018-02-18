@@ -47,6 +47,9 @@ function gameplay(myCanvas) {
     
         // # stages
         sActual = 0;
+        
+        // # window
+        isPaused = false;
     
     // # GAME
     drawUI();
@@ -155,7 +158,6 @@ function gameplay(myCanvas) {
     
     // # PUSH KEY
     function keyPush(evt){
-        
         switch(evt.keyCode){
             case 37:
                 pxv=-1;
@@ -168,6 +170,21 @@ function gameplay(myCanvas) {
                 break;
             case 40:
                 pyv=1;
+                break;
+            case 27:
+                
+                switch(isPaused){
+                    case true:
+                        //unpause
+                        gInterval = window.setInterval(game, 1000/UCfps);
+                        isPaused = false;
+                        break;
+                    case false:
+                        //pause
+                        clearInterval(gInterval);
+                        isPaused = true;
+                        break;
+                }
                 break;
         }
     }

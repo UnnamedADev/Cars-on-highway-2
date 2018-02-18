@@ -59,8 +59,9 @@ initLevels(40);
 function initLevels(nmr){
     
     levels = [];
-    levels[0] = 20;
-    for(var i=1;i<nmr+1;i++){
+    levels[0] = 0;
+    levels[1] = 20;
+    for(var i=2;i<nmr+2;i++){
         levels[i] = Math.floor(levels[i-1]*1.4);
     }
 }
