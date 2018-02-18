@@ -17,7 +17,6 @@ function addMenuEvt(btnsArray){
     
     btnsArray[0].addEventListener("click",function(){
         console.log("#play");
-        destroyUI();
         constructCanvas();
     });
     
@@ -43,9 +42,14 @@ function addMenuEvt(btnsArray){
 }
 
 // # DESTROY MENU
-function destroyUI(){
+function destroyMenu(){
     var ui = document.getElementById("menuHolder");
     ui.style.display = "none";
+}
+// # DRAW MENU
+function drawMenu(){
+    var ui = document.getElementById("menuHolder");
+    ui.style.display = "block";
 }
 // # CONTSTRUCT CANVAS
 function constructCanvas(){
@@ -53,6 +57,11 @@ function constructCanvas(){
     canvas.style.display = "block";
     // # "game.js" function init
     gameplay(canvas);
+}
+// HIDE CANVAS
+function hideCanvas(){
+    var canvas = document.getElementById("myCanvas");
+    canvas.style.display = "none";
 }
 // # READ AND DISPLAY GAME VERSION
 function rdVersion(){

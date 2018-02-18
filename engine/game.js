@@ -143,18 +143,42 @@ function gameplay(myCanvas) {
             }
         }
     }
-    
-    // # FUNCTIONS
-    function drawUI() {
-        document.getElementById("UIholder").style.display = "block";
-        
-        var stgb = "";
-        for(var i=0;i<stages.length;i++){
-            stgb += "<div>"+stages[i].name+"<span> you need "+stages[i].requireCars+" cars</span></div>"
+    // # FUNCTION
+        // # DRAW UI
+        function drawUI() {
+            document.getElementById("UIholder").style.display = "block";
+
+            var stgb = "";
+            for(var i=0;i<stages.length;i++){
+                stgb += "<div>"+stages[i].name+"<span> you need "+stages[i].requireCars+" cars</span></div>"
+            }
+
+            document.getElementById("UIstagebar").innerHTML = stgb;
+
+            var pauseWindow = document.getElementById("pauseHolder")
+            pauseWindow.getElementsByTagName("button")[0].addEventListener("click",function(){
+                window.location = "index.html";
+            });
+            pauseWindow.getElementsByTagName("button")[1].addEventListener("click",function(){
+                unpauseGame();
+            });
         }
-        
-        document.getElementById("UIstagebar").innerHTML = stgb;
-    }
+        // # REMOVE UI
+        function removeUI(){
+            document.getElementById("UIholder").style.display = "none";
+        }
+        // # PAUSE
+        function pauseGame(){
+            drawPause(true);
+            clearInterval(gInterval);
+            isPaused = true;
+        }
+        // # UNPAUSE
+        function unpauseGame(){
+            drawPause(false);
+            gInterval = window.setInterval(game, 1000/UCfps);
+            isPaused = false;
+        }
     
     // # PUSH KEY
     function keyPush(evt){
@@ -176,13 +200,11 @@ function gameplay(myCanvas) {
                 switch(isPaused){
                     case true:
                         //unpause
-                        gInterval = window.setInterval(game, 1000/UCfps);
-                        isPaused = false;
+                        unpauseGame();
                         break;
                     case false:
                         //pause
-                        clearInterval(gInterval);
-                        isPaused = true;
+                        pauseGame();
                         break;
                 }
                 break;

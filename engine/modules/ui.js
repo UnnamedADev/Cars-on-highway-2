@@ -121,12 +121,24 @@ function refreshLvl(){
     document.getElementById("UIexpnext").innerHTML = levels[pLvl+1];
     
     var validVal = Math.floor((pExperience-levels[pLvl])/(levels[pLvl+1]-levels[pLvl])*100);
-    console.log(validVal);
     document.getElementById("expbar").value = validVal;
 }
-
+// # LVL UP
 function provideLvl(){
     while(pExperience>=levels[pLvl+1]){
         pLvl++;
+    }
+}
+// # DRAW PAUSE SCREEN
+function drawPause(state){
+    switch(state){
+        //draw pause window
+        case true:
+            document.getElementById("pauseHolder").style.display = "block";
+            break;
+        //remove pause window
+        case false:
+            document.getElementById("pauseHolder").style.display = "none";
+            break;
     }
 }
