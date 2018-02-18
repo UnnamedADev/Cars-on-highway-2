@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.9 - GAME Cars on highway 2</title>
+    <title>v0.1.10 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     
     <script src="engine/modules/io.js"></script>
@@ -35,14 +35,29 @@
                 <!-- # LEFT UI # -->
                 <div>
                     <div>
-                        <p>Actual experience</p>
-                        <p>0 points</p>
+                        <p><b>Actual experience</b></p>
+                        <p id="UIplayerexperience">0 points</p>
                     </div>
                     <div>
-                        <h1>You are</h1>
-                        <h2>7</h2>
-                        <h3>level</h3>
+                        <p>You are</p>
+                        <h1 id="UIplayerLvl">7</h1>
+                        <p>level</p>
                     </div>
+                    <table>
+                        <tr class="doubletr">
+                            <td><p id="UIlvlnow">7 lvl</p></td>
+                            <td><p id="UIlvlnext">8 lvl</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <progress value="50" max="100"></progress>
+                            </td>
+                        </tr>
+                        <tr class="doubletr">
+                            <td><p id="UIexpnow">423 exp</p></td>
+                            <td><p id="UIexpnext">1645 exp</p></td>
+                        </tr>
+                    </table>
    
                 </div>
                 <!-- # RIGHT UI # -->

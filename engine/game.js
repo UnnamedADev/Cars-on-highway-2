@@ -35,9 +35,9 @@ function gameplay(myCanvas) {
         px=pdx; py=pdy;
         pxv=pyv=0;
     
-        pExperience = localStorage.getItem("userExperience");
-        pMoney = localStorage.getItem("userMoney");
-        pLvl = localStorage.getItem("userLvl");
+        pExperience = parseInt(localStorage.getItem("userExperience"));
+        pMoney = parseInt(localStorage.getItem("userMoney"));
+        pLvl = parseInt(localStorage.getItem("userLvl"));
         // # enemies generator
         eActive = undefined;
         eRange = undefined;
@@ -48,12 +48,10 @@ function gameplay(myCanvas) {
         // # stages
         sActual = 0;
     
-    
     // # GAME
     drawUI();
     initTable();
-    
-    refreshUI(true,true,true);
+    refreshUI(true,true,true,true);
     
     createEnemies(eActive);
     function game(){
@@ -89,7 +87,7 @@ function gameplay(myCanvas) {
                        removeAllEnemies();
                        createEnemies(eActive);
                        clearSummary();
-                       refreshUI(true,true,true);
+                       refreshUI(true,true,true,true);
                    }
                 }
             }
@@ -136,8 +134,8 @@ function gameplay(myCanvas) {
             // # enemy out of map detection
             if(enemy[k].y>myCanvas.height){
                 carPassed(enemy[0]);
-                refreshUI(true,true,true);
                 removeEnemy();
+                refreshUI(true,true,true,true);
                 
             }
         }
@@ -154,6 +152,7 @@ function gameplay(myCanvas) {
         
         document.getElementById("UIstagebar").innerHTML = stgb;
     }
+    
     // # PUSH KEY
     function keyPush(evt){
         

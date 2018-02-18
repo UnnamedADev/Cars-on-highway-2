@@ -1,10 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+@mixin border-radius($radius){
+    border-radius: $radius;
+    -o-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -ms-border-radius: $radius;
+}
+
 $verydark: #222;
 $dark: #333;
 $fair: #eee;
 $special: #f4c542;
 $alert: #d12323;
+
+progress::-webkit-progress-value {
+  background: $special;
+}
+
+progress::-webkit-progress-bar {
+  background: $fair;
+}
 
 body, html {
     margin: 0;
@@ -95,8 +111,63 @@ body {
             
             >div:nth-of-type(1){
                 float: left;
-                >div:nth-last-of-type(1){
+                >div{
                     background: $fair;
+                }
+                >div:nth-of-type(1){
+                    text-align: center;
+                    >p {
+                        margin: 0;
+                    }
+                }
+                
+                >div:nth-of-type(2){
+                    margin-top: 5px;
+                    text-align: center;
+                    >p {
+                        margin: 0;
+                        font-size: 1.4em;
+                    }
+                    >h1{
+                        width: 100px; height: 100px;
+                        background: $special;
+                        font-size: 4em;
+                        margin: 10px auto;
+                        @include border-radius(100%);
+                    }
+                }
+                >table{
+                    margin-top: 5px;
+                    background: $fair;
+                    border-spacing: 0px;
+                    width: 100%;
+                    padding: 10px 0px;
+                    
+                    .doubletr{
+                        td:nth-of-type(1){
+                            text-align: left;
+                            p{
+                                margin: 0px 0px 0px 5px;
+                            }
+                        }
+                        td:nth-of-type(2){
+                            text-align: right;
+                            p{
+                                margin: 0px 5px 0px 0px;
+                            }
+                        }
+                    }
+                    tr:nth-of-type(2){
+                        text-align: center;
+                        progress{
+                            -webkit-appearance: none;
+                            margin: 0;
+                            height: 30px;
+                            width: 190px;
+                            background: $special;
+                            border: 2px solid $dark;
+                        }
+                    }
                 }
              
             }

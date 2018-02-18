@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
+progress::-webkit-progress-value {
+  background: #f4c542; }
+
+progress::-webkit-progress-bar {
+  background: #eee; }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -68,8 +74,52 @@ body {
         padding: 5px; }
       body #game #UIholder > div:nth-of-type(1) {
         float: left; }
-        body #game #UIholder > div:nth-of-type(1) > div:nth-last-of-type(1) {
+        body #game #UIholder > div:nth-of-type(1) > div {
           background: #eee; }
+        body #game #UIholder > div:nth-of-type(1) > div:nth-of-type(1) {
+          text-align: center; }
+          body #game #UIholder > div:nth-of-type(1) > div:nth-of-type(1) > p {
+            margin: 0; }
+        body #game #UIholder > div:nth-of-type(1) > div:nth-of-type(2) {
+          margin-top: 5px;
+          text-align: center; }
+          body #game #UIholder > div:nth-of-type(1) > div:nth-of-type(2) > p {
+            margin: 0;
+            font-size: 1.4em; }
+          body #game #UIholder > div:nth-of-type(1) > div:nth-of-type(2) > h1 {
+            width: 100px;
+            height: 100px;
+            background: #f4c542;
+            font-size: 4em;
+            margin: 10px auto;
+            border-radius: 100%;
+            -o-border-radius: 100%;
+            -moz-border-radius: 100%;
+            -webkit-border-radius: 100%;
+            -ms-border-radius: 100%; }
+        body #game #UIholder > div:nth-of-type(1) > table {
+          margin-top: 5px;
+          background: #eee;
+          border-spacing: 0px;
+          width: 100%;
+          padding: 10px 0px; }
+          body #game #UIholder > div:nth-of-type(1) > table .doubletr td:nth-of-type(1) {
+            text-align: left; }
+            body #game #UIholder > div:nth-of-type(1) > table .doubletr td:nth-of-type(1) p {
+              margin: 0px 0px 0px 5px; }
+          body #game #UIholder > div:nth-of-type(1) > table .doubletr td:nth-of-type(2) {
+            text-align: right; }
+            body #game #UIholder > div:nth-of-type(1) > table .doubletr td:nth-of-type(2) p {
+              margin: 0px 5px 0px 0px; }
+          body #game #UIholder > div:nth-of-type(1) > table tr:nth-of-type(2) {
+            text-align: center; }
+            body #game #UIholder > div:nth-of-type(1) > table tr:nth-of-type(2) progress {
+              -webkit-appearance: none;
+              margin: 0;
+              height: 30px;
+              width: 190px;
+              background: #f4c542;
+              border: 2px solid #333; }
       body #game #UIholder > div:nth-of-type(2) {
         float: right; }
         body #game #UIholder > div:nth-of-type(2) > table {

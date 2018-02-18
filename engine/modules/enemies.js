@@ -72,6 +72,7 @@ function addEnemy(){
 // # REMOVING SINGLE ENEMY
 function removeEnemy(){
     pExperience += enemy[0].experience;
+    provideLvl();
     saveAllData();
     enemy.shift();
     addEnemy();
@@ -85,6 +86,7 @@ function removeEnemy(){
 // # REMOVING ALL ENEMIES
 function removeAllEnemies(){
     enemy = [];
+    provideLvl();
     saveAllData();
 }
 // # ADDING X ENEMIES WITH Y DELAY BETWEEN

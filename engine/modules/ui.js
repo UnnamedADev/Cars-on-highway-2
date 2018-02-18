@@ -1,5 +1,5 @@
 // # REFRESH ALL UI COMPONTENTS
-function refreshUI(isTable, isStagebar,isNextstage){
+function refreshUI(isTable, isStagebar,isNextstage,isLvl){
     
     if(isTable==true){
         refreshTable();
@@ -10,6 +10,9 @@ function refreshUI(isTable, isStagebar,isNextstage){
     }
     if(isNextstage==true){
         refreshNextstage();
+    }
+    if(isLvl==true){
+        refreshLvl();
     }
 }
 // # INIT PASSED CARS TABLE
@@ -94,6 +97,7 @@ function refreshNextstage(){
         sActual++;
         pExperience += sActual*100;
         pMoney += sActual*1000;
+        provideLvl();
         saveAllData();
     }
     
@@ -108,5 +112,12 @@ function refreshNextstage(){
 }
 // # REFRESH LVL AND EXPERIENCE BARS
 function refreshLvl(){
+    document.getElementById("UIplayerexperience").innerHTML = pExperience;
     
+}
+
+function provideLvl(){
+    if(pExperience>=levels[pLvl+1]){
+        pLvl++;
+    }
 }
