@@ -7,12 +7,28 @@
     -webkit-border-radius: $radius;
     -ms-border-radius: $radius;
 }
-
 $verydark: #222;
 $dark: #333;
 $fair: #eee;
 $special: #f4c542;
 $alert: #d12323;
+
+%gamebutton{
+    padding: 10px 50px;
+    margin: 0px 20px;
+    outline: none; border: none;
+    background: $special;
+    font-family: oswald;
+    color: $dark;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    border-left: 10px solid rgba($dark,0);
+    border-right: 10px solid rgba($dark,0);
+    &:hover {
+        border-left: 10px solid $dark;
+        border-right: 10px solid $dark;
+    }
+}
 
 progress::-webkit-progress-value {
   background: $special;
@@ -96,6 +112,44 @@ body {
                 right: 10px;
                 bottom: 0;
                 font-size: 0.7em;
+            }
+        }
+        #settingsHolder {
+            position: absolute;
+            z-index: 1250;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: $fair;
+            >div{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                >div{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    table {
+                        margin: 20px auto;
+                        width: 100%;
+                        tr{
+                            th{
+                                border-bottom: 2px solid $special;
+                            }
+                            td{
+                                padding: 10px 0px;
+                                width: (100%/3);
+                                text-align: center;
+                            }
+             
+                        }
+                    }
+                    >button{
+                        font-size: 1.2em;
+                        @extend %gamebutton;
+                    }
+                }
             }
         }
         #UIholder {
@@ -238,21 +292,8 @@ body {
                         font-size: 3em;
                     }
                     button {
-                        padding: 10px 50px;
-                        margin: 0px 20px;
-                        outline: none; border: none;
-                        background: $special;
-                        font-family: oswald;
-                        color: $dark;
                         font-size: 1.5em;
-                        text-transform: uppercase;
-                        transition: 0.3s ease;
-                        border-left: 10px solid rgba($dark,0);
-                        border-right: 10px solid rgba($dark,0);
-                        &:hover {
-                            border-left: 10px solid $dark;
-                            border-right: 10px solid $dark;
-                        }
+                        @extend %gamebutton;
                     }
                 }
             }

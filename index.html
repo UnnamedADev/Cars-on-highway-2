@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.12 - GAME Cars on highway 2</title>
+    <title>v0.1.13 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     
     <script src="engine/modules/io.js"></script>
@@ -25,14 +25,37 @@
                     <li><a class="comingsoon">cars</a></li>
                     <li><a class="comingsoon">stages</a></li>
                     <li><a class="comingsoon">games history</a></li>
-                    <li><a class="comingsoon">options</a></li>
+                    <li><a class="comingsoon">settings</a></li>
                 </ul>
                 <p class="gameSHORTCUTINFO">
                     <span id="gameMODIFIED"></span>
                     <span id="gameVERSION"></span>
                 </p>
             </div>
-            
+            <!-- # SETTINGS # -->
+            <div id="settingsHolder">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <th colspan="3">Video</th>
+                            </tr>
+                            <tr>
+                                <td>Framerate</td>
+                                <td>
+                                    <input type="range">
+                                </td>
+                                <td>
+                                    30 fps
+                                </td>
+                            </tr>
+                        </table>
+                        <button>cancel</button>
+                        <button>apply</button>
+                        <button>save</button>
+                    </div>
+                </div>
+            </div>
             <!-- # IN GAME UI # -->
             <div id="UIholder">
                 <!-- # LEFT UI # -->

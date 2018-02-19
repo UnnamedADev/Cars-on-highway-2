@@ -37,7 +37,8 @@ function addMenuEvt(btnsArray){
     });
     
     btnsArray[5].addEventListener("click",function(){
-        console.log("#options");
+        console.log("#settings");
+        document.getElementById("settingsHolder").style.display = "block";
     });
 }
 
