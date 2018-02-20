@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.13 - GAME Cars on highway 2</title>
+    <title>v0.1.14 - GAME Cars on highway 2</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     
     <script src="engine/modules/io.js"></script>
@@ -25,7 +25,7 @@
                     <li><a class="comingsoon">cars</a></li>
                     <li><a class="comingsoon">stages</a></li>
                     <li><a class="comingsoon">games history</a></li>
-                    <li><a class="comingsoon">settings</a></li>
+                    <li><a>settings</a></li>
                 </ul>
                 <p class="gameSHORTCUTINFO">
                     <span id="gameMODIFIED"></span>
@@ -43,16 +43,17 @@
                             <tr>
                                 <td>Framerate</td>
                                 <td>
-                                    <input type="range">
+                                    <input id="sttgsFps" type="range" min="5" max="120">
                                 </td>
-                                <td>
-                                    30 fps
+                                <td id="sttgsFpsDisplay">
+
                                 </td>
                             </tr>
                         </table>
-                        <button>cancel</button>
-                        <button>apply</button>
-                        <button>save</button>
+                        <button id="settingsCancel">cancel</button>
+                        <button id="settingsApply">apply</button>
+                        <button id="settingsSave">save</button>
+                        
                     </div>
                 </div>
             </div>

@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function(){
     // # DISPLAY GAME VERSION
     rdVersion();
     rdModifiedTime();
+    
+    // # SETTINGS EVENTS
+    addSettingsEvents();
+    settingsInteractions();
 });
 
 // # FUNCTIONS
@@ -73,4 +77,29 @@ function rdVersion(){
 // # READ AND DISPLAY MODIFIED TIME
 function rdModifiedTime(){
     document.getElementById("gameMODIFIED").innerHTML = "Last update: "+document.lastModified;
+}
+// # ADD SETTINGS EVENTS
+function addSettingsEvents(){
+   
+   console.log(localStorage.getItem("settingsFPS"));
+    document.getElementById("settingsCancel").addEventListener("click", function(){
+        document.getElementById("settingsHolder").style.display = "none";
+    });
+    document.getElementById("settingsApply").addEventListener("click", function(){
+        applySettings();
+    });
+    document.getElementById("settingsSave").addEventListener("click", function(){
+        applySettings();
+        document.getElementById("settingsHolder").style.display = "none";
+    });
+}
+function applySettings(){
+    localStorage.setItem("settingsFPS", document.getElementById("sttgsFps").value);
+}
+
+function settingsInteractions(){
+   document.getElementById("sttgsFpsDisplay").innerHTML = localStorage.getItem("settingsFPS")+" fps";
+    document.getElementById("sttgsFps").addEventListener("change",function(){
+        document.getElementById("sttgsFpsDisplay").innerHTML = this.value+" fps";
+    });
 }

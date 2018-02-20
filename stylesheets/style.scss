@@ -310,3 +310,69 @@ body {
 
     }
 }
+/* INPUT RANGE NATIVE DELETION */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+/* INPUT RANGE MOVEABLE */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: $special;
+  cursor: pointer;
+  margin-top: -7px;
+  @include border-radius(100%);
+}
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: $special;
+  cursor: pointer;
+  margin-top: -7px;
+  @include border-radius(100%);
+}
+input[type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: $special;
+  cursor: pointer;
+  margin-top: -7px;
+  @include border-radius(100%);
+}
+/* INPUT RANGE LINE */
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  cursor: pointer;
+  background: $dark;
+}
+input[type=range]::-moz-range-track {
+  height: 5px;
+  cursor: pointer;
+  background: $dark;
+}
+input[type=range]::-ms-track {
+  height: 5px;
+  cursor: pointer;
+  background: $dark;
+}

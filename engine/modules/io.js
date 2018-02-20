@@ -17,6 +17,7 @@ function resetUserData(){
     localStorage.setItem("userExperience",0);
     localStorage.setItem("userMoney",0);
     localStorage.setItem("userLvl",0);
+    localStorage.setItem("settingsFPS",60);
 }
 // # SAVE X DATA TO STORAGE
 function saveData(itm,val){
@@ -33,5 +34,6 @@ function readAllData(){
     console.log(localStorage.getItem("userExperience"));
     console.log(localStorage.getItem("userMoney"));
     console.log(localStorage.getItem("userLvl"));
+    console.log(localStorage.getItem("settingsFPS"));
     console.log(localStorage.getItem("generated"));
 }

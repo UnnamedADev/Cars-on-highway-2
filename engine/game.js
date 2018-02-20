@@ -3,7 +3,7 @@ function gameplay(myCanvas) {
     
     // # USER CONFIGURATION
     UCdefaultfps = 30;
-    UCfps = 60;
+    UCfps = localStorage.getItem("settingsFPS");
     UCspeedmodifier = UCdefaultfps/UCfps;
     
     
